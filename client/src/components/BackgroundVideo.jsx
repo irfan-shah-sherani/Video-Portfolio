@@ -14,26 +14,28 @@ export default function BackgroundVideo() {
   };  
 
   return (
-    <section className="relative w-full aspect-video overflow-hidden">
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute top-0 left-0 w-full h-full object-contain md:object-cover"
-      >
-        <source src={BackVideo} type="video/mp4" />
-      </video>
+    <div className="px-4 md:px-8 py-6">
+  <section className="relative w-full aspect-video">
+    <video
+      ref={videoRef}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      className="absolute top-0 w-full h-full object-contain md:object-cover"
+    >
+      <source src={BackVideo} type="video/mp4" />
+    </video>
 
-      <button
-        onClick={handleFullScreen}
-        className="absolute bottom-4 right-4 p-3  bg-opacity-40 rounded-full hover:bg-opacity-80 transition"
-        aria-label="Fullscreen"
-      >
-        <Fullscreen className="text-white w-6 h-6" />
-      </button>
-    </section>
+    <button
+      onClick={handleFullScreen}
+      className="absolute bottom-4 right-4 p-3 bg-opacity-40 rounded-full hover:bg-opacity-80 transition"
+      aria-label="Fullscreen"
+    >
+      <Fullscreen className="text-white w-6 h-6" />
+    </button>
+  </section>
+</div>
   );
 }
