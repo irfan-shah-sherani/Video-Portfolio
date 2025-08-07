@@ -1,43 +1,38 @@
 import React, { useRef } from "react";
 import { Fullscreen } from 'lucide-react';
-
-import BackVideo from "../../public/BackgroundVideo.mp4";
+import BackVideo from "../assets/BackgroundVideo.mp4";
 
 export default function BackgroundVideo() {
   const videoRef = useRef(null);
 
   const handleFullScreen = () => {
-    if (videoRef.current.requestFullscreen) {
-      videoRef.current.requestFullscreen();
-    } else if (videoRef.current.webkitRequestFullscreen) {
-      videoRef.current.webkitRequestFullscreen();
-    } else if (videoRef.current.mozRequestFullScreen) {
-      videoRef.current.mozRequestFullScreen();
-    } else if (videoRef.current.msRequestFullscreen) {
-      videoRef.current.msRequestFullscreen();
-    }
-  };
+    const el = videoRef.current;
+    if (el.requestFullscreen) el.requestFullscreen();
+    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    else if (el.mozRequestFullScreen) el.mozRequestFullScreen();
+    else if (el.msRequestFullscreen) el.msRequestFullscreen();
+  };  
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full aspect-video overflow-hidden">
       <video
         ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        preload="auto"
+        className="absolute top-0 left-0 w-full h-full object-contain md:object-cover"
       >
         <source src={BackVideo} type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
 
       <button
         onClick={handleFullScreen}
-        className="absolute bottom-4 right-4 p-2  rounded-full hover:bg-opacity-80 transition"
+        className="absolute bottom-4 right-4 p-3  bg-opacity-40 rounded-full hover:bg-opacity-80 transition"
         aria-label="Fullscreen"
       >
-        <Fullscreen className="text-white"/>
+        <Fullscreen className="text-white w-6 h-6" />
       </button>
     </section>
   );

@@ -12,13 +12,13 @@ import BackgroundVideo from "./components/BackgroundVideo";
 export default function App() {
   return (
     <div className="text-gray-800">
-      <NavBar />
+      <NavBar/>
       <Hero />
       <BackgroundVideo/>
       <FeatureStrip />
       <AboutSection />
       <WorkShowcase />
-      <BrandLogos />
+      {/* <BrandLogos /> */}
       <CTABanner />
       <Footer />
     </div>

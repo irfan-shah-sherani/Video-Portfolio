@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <motion.section
-      className="h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-white px-4 text-center"
+      className="h-full md:py-25 py-40 flex items-center justify-center bg-gradient-to-br from-blue-100 to-white px-4 text-center"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
