@@ -11,13 +11,13 @@ export default function Hero() {
     >
       <div className="md:max-w-2xl max-w-xl">
         <h1 className="text-5xl font-bold mb-4 leading-tight">
-          We turn your complex story into compelling content.
+         Capturing Stories, Creating Impact
         </h1>
         <p className="text-lg text-gray-700 mb-6">
-          Column Five helps brands connect through beautiful design & strategic storytelling.
+          We create cinematic quality ads, product shots, and brand stories that elevate your business.
         </p>
-        <button className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition-all">
-          Let’s Work Together
+        <button className="bg-black text-white font-bold px-6 py-3 hover:bg-gray-400 hover:text-black transition-all">
+          Contact
         </button>
       </div>
     </motion.section>

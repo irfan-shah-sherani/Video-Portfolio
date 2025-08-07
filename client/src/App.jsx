@@ -7,18 +7,20 @@ import WorkShowcase from "./components/WorkShowcase";
 import BrandLogos from "./components/BrandLogos";
 import CTABanner from "./components/CTABanner";
 import Footer from "./components/Footer";
+import BackgroundVideo from "./components/BackgroundVideo";
 
 export default function App() {
   return (
     <div className="text-gray-800">
       <NavBar />
       <Hero />
-      {/* <FeatureStrip /> */}
-      {/* <AboutSection /> */}
-      {/* <WorkShowcase /> */}
-      {/* <BrandLogos /> */}
-      {/* <CTABanner /> */}
-      {/* <Footer /> */}
+      <BackgroundVideo/>
+      <FeatureStrip />
+      <AboutSection />
+      <WorkShowcase />
+      <BrandLogos />
+      <CTABanner />
+      <Footer />
     </div>
   );
 }
