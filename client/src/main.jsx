@@ -11,12 +11,14 @@ import {
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Layout from './pages/Layout'
+import Service from './pages/Service'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
       <Route path='/' element={<Layout/>}> 
         <Route path="" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/Service" element={<Service />} />
       </Route>
 )
 );

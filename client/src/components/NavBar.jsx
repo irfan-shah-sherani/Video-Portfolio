@@ -8,7 +8,7 @@ export default function NavBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      setScrolled(window.scrollY > 200);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -17,7 +17,7 @@ export default function NavBar() {
   return (
     <nav
       className={`flex justify-between items-center sticky w-full px-6 py-[18px] top-0 z-10 
-    transition-colors duration-1200 
+    transition-colors duration-1500 
     ${scrolled ? "bg-black" : "bg-white"}
   `}
     >

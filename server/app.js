@@ -1,45 +1,149 @@
-// server.js
-import express from 'express';
-import fetch from 'node-fetch';
-import cors from 'cors';
+// app.js
+const express = require('express');
+const cors = require('cors');
+const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// const ACCESS_TOKEN = 'YOUR_LONG_LIVED_TOKEN';
-// const PHONE_NUMBER_ID = 'YOUR_PHONE_NUMBER_ID';
-// const ADMIN_PHONE_NUMBER = 'RECIPIENT_NUMBER'; // In international format: 923xxxxxxxxx
+// Separate route for contact form
+app.post('/api/contact', async (req, res) => {
+  const { name, email, whatsapp, budget, message } = req.body || {};
+  if (!name || !email || !message) {
+    return res.status(400).json({ ok: false, error: 'name, email and message are required' });
+  }
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    });
 
-app.post('/api/send-message', async (req, res) => {
-  console.log("api is working");
+    const toEmail = process.env.TO_EMAIL || process.env.GMAIL_USER;
 
-  // Option 1: Simple response
-  res.status(200).send('Message received');
+    const mailOptions = {
+      from: `"Website Contact" <${process.env.GMAIL_USER}>`,
+      to: toEmail,
+      replyTo: email,
+      subject: `New contact form message from ${name}`,
+      text: `Name: ${name}
+ Email: ${email}
+ ${whatsapp ? `WhatsApp: ${whatsapp}\n` : ''}${budget ? `Budget: ${budget}\n` : ''}Message:
+ ${message}
+ `,
+      html: `<div style="font-family:Arial,sans-serif;font-size:14px;color:#111">
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        ${whatsapp ? `<p><strong>WhatsApp:</strong> ${whatsapp}</p>` : ''}
+        ${budget ? `<p><strong>Budget:</strong> ${budget}</p>` : ''}
+        <p><strong>Message:</strong></p>
+        <p style="white-space:pre-line">${message}</p>
+      </div>`,
+    };
 
-  const { name, email, phone, message } = req.body;
-
-  // const fullMessage = `🧑 Name: ${name}\n📧 Email: ${email}\n💬 Message: ${message}`;
-
-  // const response = await fetch(
-  //   `https://graph.facebook.com/v18.0/${PHONE_NUMBER_ID}/messages`,
-  //   {
-  //     method: 'POST',
-  //     headers: {
-  //       Authorization: `Bearer ${ACCESS_TOKEN}`,
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       messaging_product: 'whatsapp',
-  //       to: ADMIN_PHONE_NUMBER,
-  //       type: 'text',
-  //       text: { body: fullMessage },
-      // }),
-    // }
-  // );
-
-  // const data = await response.json();
-  // res.send(data);
+    await transporter.verify();
+    const info = await transporter.sendMail(mailOptions);
+    if (!info || !(info.accepted && info.accepted.length)) {
+      console.error('SMTP rejected message:', info);
+      return res.status(502).json({ ok: false, error: 'SMTP rejected the message' });
+    }
+    console.log('Email accepted by SMTP:', info.accepted, info.response);
+    return res.status(200).json({ ok: true, message: 'Email sent' });
+  } catch (err) {
+    console.error('Email send error:', err);
+    return res.status(500).json({ ok: false, error: 'Failed to send email' });
+  }
 });
 
-app.listen(5000, () => console.log('Server running on http://localhost:5000'));
+// Separate route for newsletter subscribe (email only)
+app.post('/api/subscribe', async (req, res) => {
+  const { email, whatsapp } = req.body || {};
+  if (!email && !whatsapp) {
+    return res.status(400).json({ ok: false, error: 'email or whatsapp is required' });
+  }
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    });
+
+    const toEmail = process.env.TO_EMAIL || process.env.GMAIL_USER;
+
+    const mailOptions = {
+      from: `"Footer Lead" <${process.env.GMAIL_USER}>`,
+      to: toEmail,
+      ...(email ? { replyTo: email } : {}),
+      subject: `New footer lead`,
+      text: `${email ? `Email: ${email}\n` : ''}${whatsapp ? `WhatsApp: ${whatsapp}\n` : ''}Source: Footer`,
+      html: `<div style="font-family:Arial,sans-serif;font-size:14px;color:#111">
+        ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
+        ${whatsapp ? `<p><strong>WhatsApp:</strong> ${whatsapp}</p>` : ''}
+        <p><em>Source: Footer</em></p>
+      </div>`,
+    };
+
+    await transporter.sendMail(mailOptions);
+    return res.status(200).json({ ok: true, message: 'Lead email sent' });
+  } catch (err) {
+    console.error('Footer lead email error:', err);
+    return res.status(500).json({ ok: false, error: 'Failed to process subscription' });
+  }
+});
+app.post('/api/send-message', async (req, res) => {
+  const { name, email, phone, message } = req.body || {};
+  if (!name || !email || !message) {
+    return res.status(400).json({ ok: false, error: 'name, email and message are required' });
+  }
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    });
+
+    const toEmail = process.env.TO_EMAIL || process.env.GMAIL_USER;
+
+    const mailOptions = {
+      from: `"Website Contact" <${process.env.GMAIL_USER}>`,
+      to: toEmail,
+      replyTo: email,
+      subject: `New contact form message from ${name}`,
+      text: `Name: ${name}
+Email: ${email}
+${phone ? `Phone: ${phone}\n` : ''}Message:
+${message}
+`,
+      html: `<div style="font-family:Arial,sans-serif;font-size:14px;color:#111">
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
+        <p><strong>Message:</strong></p>
+        <p style="white-space:pre-line">${message}</p>
+      </div>`,
+    };
+
+    await transporter.sendMail(mailOptions);
+    return res.status(200).json({ ok: true, message: 'Email sent' });
+  } catch (err) {
+    console.error('Email send error:', err);
+    return res.status(500).json({ ok: false, error: 'Failed to send email' });
+  }
+});
+
+app.get('/', (_req, res) => {
+  res.send('Server is running');
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
