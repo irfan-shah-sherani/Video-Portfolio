@@ -36,7 +36,7 @@ export default function Footer(){
     setLoading(true);
     setSent(false);
     try {
-      const response = await axios.post('http://localhost:5000/api/subscribe', { whatsapp });
+      const response = await axios.post('https://video-portfolio-backend.onrender.com', { whatsapp });
       if (response.status === 200) {
         setSent(true);
         setWhatsapp('');
