@@ -1,4 +1,3 @@
-import { Link } from 'lucide-react';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop'

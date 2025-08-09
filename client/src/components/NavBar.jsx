@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Minus } from "lucide-react";
+import { FaBars, FaMinus } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -37,7 +37,7 @@ export default function NavBar() {
         to={isOnBurger ? "/" : "/burger"}
         className={`md:hidden ${scrolled ? "text-white" : "text-black"}`}
       >
-        {isOnBurger ? <Minus /> : <Menu />}
+        {isOnBurger ? <FaMinus /> : <FaBars />}
       </NavLink>
       <ul
         className={`hidden md:flex space-x-6 font-medium ${

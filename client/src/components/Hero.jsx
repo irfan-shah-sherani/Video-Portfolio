@@ -1,5 +1,5 @@
 import React from "react";
-import { motion as Motion } from "motion/react";
+import { motion as Motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 
 export default function Hero() {

@@ -1,5 +1,4 @@
 "use client";
-import { Fullscreen } from 'lucide-react';
 import FistVideoA from '../assets/video/IMG_2422.mp4';
 import FistVideoB from '../assets/video/IMG_2423.mp4';
 import SecondVideoA from "../assets/video/IMG_2424.mp4";

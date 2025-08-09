@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Fullscreen } from "lucide-react";
+import { FaExpand as Fullscreen } from "react-icons/fa";
 import BackVideo from "../assets/video/IMG_2389.mp4";
 // import VideoPlayer from './StreamPlayer';
 

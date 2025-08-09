@@ -1,10 +1,9 @@
 import React from 'react'
-import { div } from "motion/react-client";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const Uppertext = () => {
   return (
-   <motion.section
+   <Motion.section
   className="w-full h-auto  overflow-hidden px-4 py-8"
   initial={{ opacity: 0, y: -10 }}
   animate={{ opacity: 1, y: -30 }}
@@ -21,7 +20,7 @@ const Uppertext = () => {
       Each engagement scope is tailored to your needs to help you hit the ground running, build a strong foundation, and scale up as needed.
     </p>
   </div>
-</motion.section>
+</Motion.section>
 
   )
 }
