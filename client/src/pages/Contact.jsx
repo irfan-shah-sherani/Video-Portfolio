@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 import ScrollToTop from '../components/ScrollToTop';
+
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
+
 export default function Contact() {
   const [form, setForm] = useState({
     firstName: '',
@@ -43,7 +46,7 @@ export default function Contact() {
 
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/api/contact', payload);
+      const response = await axios.post(`${API_BASE}/api/contact`, payload, { withCredentials: true });
       if (
         response.status === 200 &&
         (response.data?.ok || response.data === 'Message received' || response.data?.message === 'Email sent')

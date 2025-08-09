@@ -1,12 +1,25 @@
 import React from "react";
 import { FaBars, FaMinus } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/auth-context";
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const isOnBurger = location.pathname === "/burger";
+
+  async function handleLogout() {
+    try {
+      await logout();
+      navigate("/login");
+    } catch (err) {
+      // Log and continue navigation fallback
+      console.error("Logout failed:", err);
+    }
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -137,6 +150,65 @@ export default function NavBar() {
               </>
             )}
           </NavLink>
+        </li>
+
+        <li className="group relative cursor-pointer">
+          <NavLink
+            to="/portal"
+            className={({ isActive }) =>
+              `relative z-10 transition-colors duration-300 font-bold ${
+                scrolled ? "text-white" : "text-black"
+              } ${isActive ? "border px-2 py-1" : ""}`
+            }
+          >
+            {({ isActive }) => (
+              <>
+                Portal
+                {!isActive && (
+                  <span
+                    className={`absolute left-0 -bottom-1 w-0 h-[2px] ${
+                      scrolled ? "bg-white" : "bg-black"
+                    } transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0 `}
+                  ></span>
+                )}
+              </>
+            )}
+          </NavLink>
+        </li>
+
+        <li className="group relative cursor-pointer">
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className={`relative z-10 transition-colors duration-300 font-bold ${
+                scrolled ? "text-white" : "text-black"
+              } border px-2 py-1`}
+            >
+              Logout
+            </button>
+          ) : (
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `relative z-10 transition-colors duration-300 font-bold ${
+                  scrolled ? "text-white" : "text-black"
+                } ${isActive ? "border px-2 py-1" : ""}`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  Login
+                  {!isActive && (
+                    <span
+                      className={`absolute left-0 -bottom-1 w-0 h-[2px] ${
+                        scrolled ? "bg-white" : "bg-black"
+                      } transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0 `}
+                    ></span>
+                  )}
+                </>
+              )}
+            </NavLink>
+          )}
         </li>
       </ul>
     </nav>

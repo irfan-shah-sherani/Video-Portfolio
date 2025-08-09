@@ -3,7 +3,7 @@ import Formbutton from "../components/Formbutton";
 import PricingCard from "../components/PricingCard";
 import Uppertext from "../components/uppertext";
 import { AnimatePresence, motion } from "framer-motion";
-import TextSlider from "../components/Textslider";
+import TextSlider from "../components/TextSlider";
 import WebDevCard from "../components/WebDevCard"; 
 import ScrollToTop from '../components/ScrollToTop'
 const Pricing = () => {
