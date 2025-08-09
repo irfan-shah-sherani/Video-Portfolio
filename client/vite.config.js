@@ -4,6 +4,12 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  plugins: [react(),tailwindcss(),react()],
+  preview: {
+    allowedHosts: ['video-portfolio-w0m0.onrender.com'],
+    host: '0.0.0.0',
+    port: 5173
+  },
   server: {
     proxy: {
       '/api': {
@@ -13,8 +19,4 @@ export default defineConfig({
       }
     }
   },
-  plugins: [
-        tailwindcss(),
-        react()
-      ],
 })
