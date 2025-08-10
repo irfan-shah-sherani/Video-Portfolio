@@ -3,7 +3,7 @@ import React from 'react';
 const Formbutton = ({ selected, setSelected }) => {
   return (
     <div className="flex flex-col md:flex-row border-[3px] border-gray-500 rounded-xl select-none w-full max-w-2xl mx-auto gap-2 p-2">
-      {['video editing', 'graphics', 'web development'].map((item) => (
+      {['video editing', 'Social Media Package', 'web development'].map((item) => (
         <label
           key={item}
           className="radio flex flex-grow items-center justify-center rounded-lg cursor-pointer"

@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Formbutton from "../components/Formbutton";
 import PricingCard from "../components/PricingCard";
 import Uppertext from "../components/uppertext";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as Motion } from "framer-motion";
 import TextSlider from "../components/TextSlider";
 import WebDevCard from "../components/WebDevCard"; 
-import ScrollToTop from '../components/ScrollToTop'
+import ScrollToTop from '../components/ScrollToTop';
+import AvanicLogo from '../assets/img/AvanicLogo.png';
+
+const MotionDiv = Motion.div;
 const Pricing = () => {
   const [selected, setSelected] = useState("video editing");
 
@@ -15,14 +18,14 @@ const Pricing = () => {
         title: "Video Starter Pack",
         discript:
           "Includes 5 professionally edited videos with Professional Voice Acting, Transitions, and Background music.",
-        price: "Rs.50,000/-",
+        price: "50,000/-",
         greet: " Let's bring your story to life with stunning videos!",
       },
       {
         title: "Cinematic Package",
         discript:
           "Create 20 High-End cinematic Production including color grading, sound design, and storytelling edits.",
-        price: "Rs.150,000/-",
+        price: "150,000/-",
         greet: " Perfect for ads, promos, and social content!",
       },
       {
@@ -38,7 +41,7 @@ const Pricing = () => {
         title: "Starter Package",
         discript:
           "10 Social media posts, 5 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee.",
-        price: "Rs.75,000/-",
+        price: "75,000/-",
         greet: " Let’s make your visuals speak louder than words!",
       },
       {
@@ -52,7 +55,7 @@ const Pricing = () => {
         title: "Full Brand Kit",
         discript:
           "30 Social media posts, 20 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee. ",
-        price: "Rs.180,000/-",
+        price: "180,000/-",
         greet: " A strong brand starts with stunning design!",
       },
     ],
@@ -83,7 +86,7 @@ const Pricing = () => {
         >
           {selected === "web development"
             ? pricingData["web development"].map((item, index) => (
-                <motion.div
+                <MotionDiv
                   key={item.title + index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -92,19 +95,19 @@ const Pricing = () => {
                 >
                   <WebDevCard
                     companyName="AvanicSoft"
-                    logoSrc="tg.png"
+                    logoSrc={AvanicLogo}
                   
                     description={item.discript}
                  
               
                     features={item.features}
                     collaborationNote="This website is proudly developed by AvanicSoft in collaboration with Trimzo digital."
-                    contactLink="https://avanicsoft.com/contact"
+                    contactLink="https://avanicsoft.com"
                   />
-                </motion.div>
+                </MotionDiv>
               ))
-            : pricingData[selected].map((item, index) => (
-                <motion.div
+            : (pricingData[selected] || []).map((item, index) => (
+                <MotionDiv
                   key={item.title + index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -117,7 +120,7 @@ const Pricing = () => {
                     price={item.price}
                     greet={item.greet}
                   />
-                </motion.div>
+                </MotionDiv>
               ))}
         </div>
       </AnimatePresence>
