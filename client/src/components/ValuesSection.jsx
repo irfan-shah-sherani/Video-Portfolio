@@ -1,18 +1,18 @@
 const valuesData = {
   belief:
-    "We believe businesses can shape our world for the better, and they can do it with strong communities of people behind them.",
+    "We believe every brand has a story worth telling.",
   explanation:
-    "By using the power of story—the last remaining competitive advantage—we help brands meet their lifelong customers, build meaningful relationships, and make good choices for people, profit, and our planet. This work starts within our own company, where we've gathered a talented group of humans who share the values we hold deeply:",
+    "We craft experiences that turn viewers into loyal followers, and followers into customers. Our team is driven by creativity, strategy, and the belief that powerful storytelling can transform businesses:",
   values: [
     {
-      title: "Be Curious",
+      title: "OUR GOAL",
       description:
-        "Lead with questions, listen intently, and learn and teach passionately.",
+        "Every frame,every post, every campaign is designed with your goals in mind.",
     },
     {
-      title: "Act Courageously",
+      title: "Deliver Excellence",
       description:
-        "Think, speak, and act with conviction and common sense.",
+        "From concept to final edit, we obsess over quality that makes you pround .",
     },
     {
       title: "Do Good Work",
@@ -31,7 +31,7 @@ const valuesData = {
     },
   ],
   conclusion:
-    "By creating a community where people feel loved, respected, and challenged, we make Column Five a place of belonging and a source of fulfillment.",
+    "Wanna Join Our Team. Contact us at <a>trimzoco@gmail.com</a> and provide us your Talent. We are hiring Talented Editors.",
 };
 
 const ValuesSection = () => {
