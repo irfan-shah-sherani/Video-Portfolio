@@ -1,13 +1,10 @@
 const aboutData = {
-  heading: "About Trimzo",
-  text: "At Trimzo, we bring stories to life. We’re a creative powerhouse specializing in professional video production and social media management that connects brands with their audience. From concept to final cut, we craft high-quality visuals that inspire, engage, and leave a lasting impact.",
+  heading: "About Us",
+  text: "Column Five helps SaaS companies carve out a competitive edge and forge meaningful connections through world-class content. We partner with our clients to refine their identity, crystallize their unique perspective, and craft content programs that cultivate engaged communities of loyal fans who are eager to buy long before the first sales conversation.",
   images: [
-    "",
-    "",
-    ""
-    // "https://images.unsplash.com/photo-1521737604893-d14cc237f11d", 
-    // "https://images.unsplash.com/photo-1504384308090-c894fdcc538d", 
-    // "https://images.unsplash.com/photo-1522202176988-66273c2fd55f", 
+    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d", 
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d", 
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f", 
   ],
 };
 

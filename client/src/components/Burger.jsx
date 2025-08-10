@@ -60,13 +60,13 @@ export default function Burger() {
         <motion.div variants={itemVariants} className="mt-20 text-right">
           <p className="text-lg font-sans">Follow us on social</p>
           <div className="flex justify-end gap-4 mt-2">
-            <a href="https://www.instagram.com/trimzo.co/" className="hover:text-gray-400 transition-colors duration-300">
+            <a href="#" className="hover:text-gray-400 transition-colors duration-300">
               <FaInstagram/>
             </a>
             <a href="#" className="hover:text-gray-400 transition-colors duration-300">
               <FaFacebookF/>
             </a>
-            <a href="https://www.tiktok.com/@trimzoco" className="hover:text-gray-400 transition-colors duration-300">
+            <a href="#" className="hover:text-gray-400 transition-colors duration-300">
               <FaTiktok/>
               </a>
           </div>

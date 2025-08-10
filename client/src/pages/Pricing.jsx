@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import Formbutton from "../components/Formbutton";
 import PricingCard from "../components/PricingCard";
 import Uppertext from "../components/uppertext";
-import { AnimatePresence, motion as Motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import TextSlider from "../components/TextSlider";
 import WebDevCard from "../components/WebDevCard"; 
 import ScrollToTop from '../components/ScrollToTop';
-import AvanicLogo from '../assets/img/Avanicsoft.png';
 
-const MotionDiv = Motion.div;
 const Pricing = () => {
   const [selected, setSelected] = useState("video editing");
 
@@ -18,21 +16,21 @@ const Pricing = () => {
         title: "Video Starter Pack",
         discript:
           "Includes 5 professionally edited videos with Professional Voice Acting, Transitions, and Background music.",
-        price: "50,000/-",
+        price: "Rs.50,000/-",
         greet: " Let's bring your story to life with stunning videos!",
       },
       {
         title: "Cinematic Package",
         discript:
           "Create 20 High-End cinematic Production including color grading, sound design, and storytelling edits.",
-        price: "150,000/-",
+        price: "Rs.150,000/-",
         greet: " Perfect for ads, promos, and social content!",
       },
       {
         title: "Standard Package",
         discript:
           "Create 10 Professionally Shot Videos, With Proper Voice acting, Subtitles, Visuals, into/outro.",
-        price: "80,000/-",
+        price: "80K",
         greet: " Perfect for ads, promos, and social content!",
       },
     ],
@@ -41,7 +39,7 @@ const Pricing = () => {
         title: "Starter Package",
         discript:
           "10 Social media posts, 5 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee.",
-        price: "75,000/-",
+        price: "Rs.75,000/-",
         greet: " Let’s make your visuals speak louder than words!",
       },
       {
@@ -55,7 +53,7 @@ const Pricing = () => {
         title: "Full Brand Kit",
         discript:
           "30 Social media posts, 20 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee. ",
-        price: "180,000/-",
+        price: "Rs.180,000/-",
         greet: " A strong brand starts with stunning design!",
       },
     ],
@@ -86,7 +84,7 @@ const Pricing = () => {
         >
           {selected === "web development"
             ? pricingData["web development"].map((item, index) => (
-                <MotionDiv
+                <motion.div
                   key={item.title + index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -95,19 +93,19 @@ const Pricing = () => {
                 >
                   <WebDevCard
                     companyName="AvanicSoft"
-                    logoSrc={AvanicLogo}
+                    logoSrc="tg.png"
                   
                     description={item.discript}
                  
               
                     features={item.features}
                     collaborationNote="This website is proudly developed by AvanicSoft in collaboration with Trimzo digital."
-                    contactLink="https://avanicsoft.com"
+                    contactLink="https://avanicsoft.com/contact"
                   />
-                </MotionDiv>
+                </motion.div>
               ))
-            : (pricingData[selected] || []).map((item, index) => (
-                <MotionDiv
+            : pricingData[selected].map((item, index) => (
+                <motion.div
                   key={item.title + index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -120,7 +118,7 @@ const Pricing = () => {
                     price={item.price}
                     greet={item.greet}
                   />
-                </MotionDiv>
+                </motion.div>
               ))}
         </div>
       </AnimatePresence>
