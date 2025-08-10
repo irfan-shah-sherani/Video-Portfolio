@@ -5,8 +5,7 @@ import Uppertext from "../components/uppertext";
 import { AnimatePresence, motion } from "framer-motion";
 import TextSlider from "../components/TextSlider";
 import WebDevCard from "../components/WebDevCard"; 
-import ScrollToTop from '../components/ScrollToTop';
-
+import ScrollToTop from '../components/ScrollToTop'
 const Pricing = () => {
   const [selected, setSelected] = useState("video editing");
 
@@ -15,45 +14,45 @@ const Pricing = () => {
       {
         title: "Video Starter Pack",
         discript:
-          "Includes 5 professionally edited videos with Professional Voice Acting, Transitions, and Background music.",
-        price: "Rs.50,000/-",
+          "Includes 3 professionally edited videos/month with transitions, subtitles, and background music.",
+        price: "5K",
         greet: " Let's bring your story to life with stunning videos!",
       },
       {
         title: "Cinematic Package",
         discript:
-          "Create 20 High-End cinematic Production including color grading, sound design, and storytelling edits.",
-        price: "Rs.150,000/-",
+          "High-end cinematic production including color grading, sound design, and storytelling edits.",
+        price: "10K",
         greet: " Perfect for ads, promos, and social content!",
       },
       {
-        title: "Standard Package",
+        title: "Cinematic Package",
         discript:
-          "Create 10 Professionally Shot Videos, With Proper Voice acting, Subtitles, Visuals, into/outro.",
-        price: "80K",
+          "High-end cinematic production including color grading, sound design, and storytelling edits.",
+        price: "10K",
         greet: " Perfect for ads, promos, and social content!",
       },
     ],
-    "Social Media Package": [
+    graphics: [
       {
-        title: "Starter Package",
+        title: "Graphic Design Basics",
         discript:
-          "10 Social media posts, 5 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee.",
-        price: "Rs.75,000/-",
+          "Social media posts, posters, and branding content with unlimited revisions.",
+        price: "3K",
         greet: " Let’s make your visuals speak louder than words!",
       },
       {
-        title: "Basic Package",
+        title: "Full Brand Kit",
         discript:
-          "20 Social media posts, 10 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee.",
-        price: "-Rs.130,000/-",
+          "Logo design, business cards, and a complete brand guideline.",
+        price: "7K",
         greet: " A strong brand starts with stunning design!",
       },
       {
         title: "Full Brand Kit",
         discript:
-          "30 Social media posts, 20 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee. ",
-        price: "Rs.180,000/-",
+          "Logo design, business cards, and a complete brand guideline.",
+        price: "7K",
         greet: " A strong brand starts with stunning design!",
       },
     ],
