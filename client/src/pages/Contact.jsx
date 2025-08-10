@@ -151,11 +151,11 @@ export default function Contact() {
                 required
               >
                 <option value="">Please Select</option>
-                <option>Under PKR 1,000</option>
-                <option>PKR 1,000 — PKR 5,000</option>
-                <option>PKR 5,000 — PKR 10,000</option>
-                <option>PKR 10,000 — PKR 25,000</option>
-                <option>PKR 25,000+</option>
+                <option>Under $1,000</option>
+                <option>$1,000 — $5,000</option>
+                <option>$5,000 — $10,000</option>
+                <option>$10,000 — $25,000</option>
+                <option>$25,000+</option>
               </select>
             </div>
 

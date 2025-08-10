@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FaPlus, FaTimes } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
 
 const PricingCard = ({ title, discript, price, greet }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -8,7 +7,7 @@ const PricingCard = ({ title, discript, price, greet }) => {
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
   return (
-    <NavLink to="/contact"
+    <div
       className={`max-w-xs bg-white p-6 border border-gray-200 shadow-lg rounded-sm space-y-4 
         transition-all duration-500 overflow-hidden 
         transform hover:scale-105 hover:shadow-2xl cursor-pointer
@@ -22,7 +21,7 @@ const PricingCard = ({ title, discript, price, greet }) => {
 
       <div>
         <p className="text-sm text-gray-800">Starting</p>
-        <p className="text-3xl font-bold">`Rs{price}`</p>
+        <p className="text-3xl font-bold">${price}</p>
         <p className="text-sm text-gray-500">per month</p>
       </div>
 
@@ -47,7 +46,7 @@ const PricingCard = ({ title, discript, price, greet }) => {
       <button className="bg-black text-white px-4 py-2 mt-2 font-semibold hover:bg-gray-800 transition">
         Book Intro Call
       </button>
-    </NavLink>
+    </div>
   );
 };
 

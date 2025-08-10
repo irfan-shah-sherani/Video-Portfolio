@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
 // SVG Icon Components
-const TwitterIcon = () => (
+const TikToke = () => (
   <FaTiktok/>
 );
 
@@ -70,10 +70,10 @@ export default function Footer(){
           {/* Column 2: Office and Social */}
           <div className="md:basis-3/12">
             {/* <h3 className="font-bold mb-4">Office</h3> */}
-            <a href=''><p className="mb-4 text-sm cursor-pointer">+92 327 0013606</p></a>
+            <a href=''><p className="mb-4 text-sm cursor-pointer">+92 327 5313473</p></a>
             <div className="flex space-x-4">
-              <a href="" aria-label="Twitter"><TwitterIcon /></a>
-              <a href="" aria-label="Instagram"><InstagramIcon /></a>
+              <a href="https://www.instagram.com/trimzo.co/" aria-label="TikTok"><TikToke/></a>
+              <a href="https://www.instagram.com/trimzo.co/" aria-label="Instagram"><InstagramIcon /></a>
               <a href="" aria-label="Facebook"><FacebookIcon /></a>
             </div>
           </div>
