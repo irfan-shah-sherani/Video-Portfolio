@@ -43,7 +43,7 @@ export default function Contact() {
 
     try {
       setLoading(true);
-      const response = await axios.post('https://video-portfolio-backend.onrender.com', payload);
+      const response = await axios.post('https://video-portfolio-backend.onrender.com/api/contact', payload);
       if (
         response.status === 200 &&
         (response.data?.ok || response.data === 'Message received' || response.data?.message === 'Email sent')
