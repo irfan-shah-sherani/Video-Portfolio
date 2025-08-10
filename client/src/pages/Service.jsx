@@ -48,14 +48,14 @@ export default function App() {
                     </div>
                     {/* Card 2 */}
                     <div className="flex-1 bg-zinc-800 p-8 rounded-lg  hover:shadow-sm hover:shadow-blue-500">
-                        <span className="text-lg font-bold text-zinc-400">Video Editing</span>
+                        <span className="text-lg font-bold text-zinc-400">High-end cameras, , lighting,</span>
                         <p className="mt-4 text-xl">
                             Color grading, motion graphics, and sound design by our expert team.
                         </p>
                     </div>
                     {/* Card 3 */}
                     <div className="flex-1 bg-zinc-800 p-8 rounded-lg shadow-sm hover:shadow-sm hover:shadow-blue-500">
-                        <span className="text-lg font-bold text-zinc-400">Brand Storytelling</span>
+                        <span className="text-lg font-bold text-zinc-400">experienced cinematographers.</span>
                         <p className="mt-4 text-xl">
                             We help you tell powerful, emotional stories that grow your brand.
                         </p>
