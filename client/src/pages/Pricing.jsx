@@ -6,7 +6,7 @@ import { AnimatePresence, motion as Motion } from "framer-motion";
 import TextSlider from "../components/TextSlider";
 import WebDevCard from "../components/WebDevCard"; 
 import ScrollToTop from '../components/ScrollToTop';
-import AvanicLogo from '../assets/img/AvanicLogo.png';
+import AvanicLogo from '../assets/img/Avanicsoft.png';
 
 const MotionDiv = Motion.div;
 const Pricing = () => {
