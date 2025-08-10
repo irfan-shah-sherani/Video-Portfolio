@@ -21,7 +21,7 @@ const PricingCard = ({ title, discript, price, greet }) => {
 
       <div>
         <p className="text-sm text-gray-800">Starting</p>
-        <p className="text-3xl font-bold">`Rs{price}`</p>
+        <p className="text-3xl font-bold">Rs{price}</p>
         <p className="text-sm text-gray-500">per month</p>
       </div>
 
