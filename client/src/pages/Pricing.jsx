@@ -15,14 +15,14 @@ const Pricing = () => {
         title: "Video Starter Pack",
         discript:
           "Includes 5 professionally edited videos with Professional Voice Acting, Transitions, and Background music.",
-        price: "Rs.50,000/-",
+        price: "50,000/-",
         greet: " Let's bring your story to life with stunning videos!",
       },
       {
         title: "Cinematic Package",
         discript:
           "Create 20 High-End cinematic Production including color grading, sound design, and storytelling edits.",
-        price: "Rs.150,000/-",
+        price: "150,000/-",
         greet: " Perfect for ads, promos, and social content!",
       },
       {
@@ -38,21 +38,21 @@ const Pricing = () => {
         title: "Starter Package",
         discript:
           "10 Social media posts, 5 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee.",
-        price: "Rs.75,000/-",
+        price: "75,000/-",
         greet: " Let’s make your visuals speak louder than words!",
       },
       {
         title: "Basic Package",
         discript:
           "20 Social media posts, 10 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee.",
-        price: "-Rs.130,000/-",
+        price: "130,000/-",
         greet: " A strong brand starts with stunning design!",
       },
       {
         title: "Full Brand Kit",
         discript:
           "30 Social media posts, 20 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee. ",
-        price: "Rs.180,000/-",
+        price: "180,000/-",
         greet: " A strong brand starts with stunning design!",
       },
     ],
