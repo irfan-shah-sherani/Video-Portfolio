@@ -1,24 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(),tailwindcss(),react()],
-  preview: {
-    allowedHosts: [
-      'video-portfolio-w0m0.onrender.com'
-    ],
-    host: '0.0.0.0',
-    port: 5173
-  },
+export default defineConfig(({ mode }) => ({
   server: {
-    proxy: {
-      '/api': {
-        target: 'https://video-portfolio-backend.onrender.com',
-        changeOrigin: true,
-        secure: false
-      }
-    }
+    proxy: mode === 'development'
+      ? {
+          '/api': {
+            target: 'http://localhost:5000',
+            changeOrigin: true,
+            secure: false,
+          },
+        }
+      : undefined,
   },
-})
+  plugins: [
+    tailwindcss(),
+    react(),
+  ],
+}));

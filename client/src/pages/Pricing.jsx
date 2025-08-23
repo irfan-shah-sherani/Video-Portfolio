@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import TextSlider from "../components/TextSlider";
 import WebDevCard from "../components/WebDevCard"; 
 import ScrollToTop from '../components/ScrollToTop'
+import avanicLogo from '../assets/img/Avanicsoft.png'
 const Pricing = () => {
   const [selected, setSelected] = useState("video editing");
 
@@ -35,14 +36,14 @@ const Pricing = () => {
     ],
     "Social Media Package": [
       {
-        title: "Starter Package",
+        title: "Basic Package",
         discript:
           "10 Social media posts, 5 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee.",
         price: "75,000/-",
         greet: " Let’s make your visuals speak louder than words!",
       },
       {
-        title: "Basic Package",
+        title: "Starter Package",
         discript:
           "20 Social media posts, 10 Professionally Edited Videos, With SEO to Improve Organic Growth. Boosting Video Ads will be charged extra Rs.10,000 Excluding the Boosting Fee.",
         price: "130,000/-",
@@ -67,7 +68,7 @@ const Pricing = () => {
   };
 
   return (
-    <div className="bg-[#EBEBEB] h-full pt-10 w-full">
+    <div className="bg-wite h-full pt-10 w-full">
       <ScrollToTop/>
       <Uppertext />
 
@@ -92,7 +93,7 @@ const Pricing = () => {
                 >
                   <WebDevCard
                     companyName="AvanicSoft"
-                    logoSrc="tg.png"
+                    logoSrc={avanicLogo}
                   
                     description={item.discript}
                  

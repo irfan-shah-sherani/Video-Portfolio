@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
 export default function Contact() {
   const [form, setForm] = useState({
@@ -14,6 +16,16 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
 
+  const user = useSelector((state) => state.auth.user);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.savedForm) {
+      setForm(location.state.savedForm);
+    }
+  }, [location.state]);
+
   const maxChars = 1000;
   const charCount = form.details.length;
 
@@ -27,6 +39,12 @@ export default function Contact() {
     e.preventDefault();
     setError('');
     setSent(false);
+
+    if (!user) {
+      // Redirect to login with saved form
+      navigate('/login', { state: { from: '/contact', savedForm: form } });
+      return;
+    }
 
     if (!form.firstName || !form.lastName || !form.email || !form.whatsapp || !form.budget) {
       setError('Please fill in all required fields.');
@@ -43,7 +61,7 @@ export default function Contact() {
 
     try {
       setLoading(true);
-      const response = await axios.post('https://video-portfolio-backend.onrender.com/api/contact', payload);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE}/api/contact`, payload);
       if (
         response.status === 200 &&
         (response.data?.ok || response.data === 'Message received' || response.data?.message === 'Email sent')
