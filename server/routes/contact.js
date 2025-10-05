@@ -3,6 +3,7 @@ const { sendEmail } = require('../utils/email');
 const { requireAuth, requireVerified } = require('../middleware/auth');
 
 const router = express.Router();
+  
 
 // POST /api/contact (open to public)
 router.post('/contact', async (req, res) => {
@@ -44,7 +45,7 @@ router.post('/subscribe', async (req, res) => {
     const toEmail = process.env.TO_EMAIL || process.env.GMAIL_USER;
     const subject = 'New footer lead';
     const text = `${email ? `Email: ${email}\n` : ''}${whatsapp ? `WhatsApp: ${whatsapp}\n` : ''}Source: Footer`;
-    const html = `<div style="font-family:Arial,sans-serif;font-size:14px;color:#111">
+    const  html = `<div style="font-family:Arial,sans-serif;font-size:14px;color:#111">
       ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
       ${whatsapp ? `<p><strong>WhatsApp:</strong> ${whatsapp}</p>` : ''}
       <p><em>Source: Footer</em></p>
